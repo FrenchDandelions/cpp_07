@@ -42,8 +42,8 @@ void capitalize(std::string& str)
     }
 }
 
-template <typename T, typename U>
-void iter(T& array, int length, void f(U&))
+template <typename T>
+void iter(T *array, int length, void f(T&))
 {
     for(int it = 0; it < length; it++)
     {
