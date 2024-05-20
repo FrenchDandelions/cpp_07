@@ -51,4 +51,13 @@ void iter(T *array, int length, void f(T&))
     }
 }
 
+template <typename T>
+void iter(const T *array, int length, void f(const T&))
+{
+    for(int it = 0; it < length; it++)
+    {
+        f(array[it]);
+    }
+}
+
 #endif

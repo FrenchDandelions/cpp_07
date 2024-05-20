@@ -28,6 +28,7 @@ class Array
         Array(const Array &copy);
         Array& operator=(const Array &copy);
         T& operator[](int index);
+        const T& operator[](int index) const;
         ~Array();
 
         int size();
@@ -36,14 +37,14 @@ class Array
 template <typename T>
 Array<T>::Array()
 {
-    this->_array = new T[0];
+    this->_array = new T[0]();
     _size_array = 0;
 }
 
 template <typename T>
 Array<T>::Array(int size)
 {
-    this->_array = new T[size];
+    this->_array = new T[size]();
     _size_array = size;
 }
 
@@ -72,6 +73,14 @@ Array<T>& Array<T>::operator=(const Array &copy)
 
 template <typename T>
 T& Array<T>::operator[](int index)
+{
+    if(index >= this->_size_array || index < 0)
+        throw std::out_of_range("The index is out of range");
+    return(this->_array[index]);
+}
+
+template <typename T>
+const T& Array<T>::operator[](int index) const
 {
     if(index >= this->_size_array || index < 0)
         throw std::out_of_range("The index is out of range");
