@@ -1,5 +1,10 @@
 #include "iter.hpp"
 
+void  print_ints(const int &i)
+{
+    std::cout << "INT: " << i << '\n';
+}
+
 int main()
 {
     std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
@@ -89,5 +94,25 @@ int main()
     for (int i = 0; i < 5; ++i)
     {
         std::cout << stringArray[i] << std::endl;
+    }
+    std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
+	std::cout <<"TEST CONST INT ARRAY:" << std::endl;
+	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << std::endl << GREEN "BEFORE ITER:" << std::endl;
+	std::cout << "---------------------------------------------------" RESET << std::endl;
+    int array2[4] = {1, 2, 3, 4};
+    const int *array3 = array2;
+    for(int i = 0; i < 4; i++)
+    {
+        std::cout << "Here: " << array3[i] << std::endl;
+    }
+    std::cout << std::endl << GREEN "FUNCTION TO PRINT ITER:" << std::endl;
+	std::cout << "---------------------------------------------------" RESET << std::endl;
+    iter(array3, 4, print_ints);
+    std::cout << std::endl << GREEN "AFTER ITER:" << std::endl;
+	std::cout << "---------------------------------------------------" RESET << std::endl;
+    for(int i = 0; i < 4; i++)
+    {
+        std::cout << "Here: " << array3[i] << std::endl;
     }
 }

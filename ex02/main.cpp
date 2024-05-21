@@ -85,6 +85,18 @@ int main()
         std::cout << stringArray[i] << std::endl;
     }
 
+    std::cout << std::endl << GREEN "STRING CONST ARRAY:" << std::endl;
+	std::cout << "---------------------------------------------------" RESET << std::endl;
+    Array<std::string> stringArray2(3);
+    stringArray2[0] = "hello";
+    stringArray2[1] = "world";
+    stringArray2[2] = "!";
+    const Array<std::string> stringArray3(stringArray2);
+    std::cout << "String array:" << std::endl;
+    for (int i = 0; i < 3; ++i) {
+        std::cout << stringArray3[i] << std::endl;
+    }
+
     std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
 	std::cout <<"TEST GIVEN MAIN:" << std::endl;
 	std::cout << "---------------------------------------------------" RESET << std::endl << std::endl;
